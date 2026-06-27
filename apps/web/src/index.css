@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 36 39% 97%;
+    --foreground: 25 25% 15%;
+    
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 142 52% 45%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 36 33% 92%;
+    --muted-foreground: 25 15% 45%;
+    
+    --card: 0 0% 100%;
+    --card-foreground: 25 25% 15%;
+    
+    --popover: 0 0% 100%;
+    --popover-foreground: 25 25% 15%;
+    
+    --border: 36 20% 88%;
+    --input: 36 20% 88%;
+    --ring: 25 95% 53%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --radius: 0.75rem;
+    
+    /* Header & Branding Specific Tokens */
+    --header-height-mobile: 6rem;
+    --header-height-desktop: 7.5rem;
+    --brand-logo-height-mobile: 4.5rem;
+    --brand-logo-height-desktop: 5.5rem;
+    --brand-text-mobile: 1.5rem;
+    --brand-text-desktop: 2.25rem;
+    
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 25 20% 8%;
+    --foreground: 36 20% 95%;
+    
+    --primary: 25 95% 53%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 142 52% 45%;
+    --secondary-foreground: 0 0% 100%;
+    
+    --accent: 199 89% 48%;
+    --accent-foreground: 0 0% 100%;
+    
+    --muted: 25 15% 15%;
+    --muted-foreground: 36 15% 65%;
+    
+    --card: 25 15% 12%;
+    --card-foreground: 36 20% 95%;
+    
+    --popover: 25 15% 12%;
+    --popover-foreground: 36 20% 95%;
+    
+    --border: 25 15% 20%;
+    --input: 25 15% 20%;
+    --ring: 25 95% 53%;
+    
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: "DM Sans", sans-serif;
+    overflow-x: clip;
+    font-feature-settings: "kern" 1;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+    letter-spacing: -0.02em;
+  }
+
+  p {
+    @apply leading-relaxed;
+    max-width: 65ch;
+  }
+}
+
+@layer components {
+  /* Header Structural Components */
+  .header-nav-area {
+    height: var(--header-height-mobile);
+    transition: height 0.3s ease;
+  }
+  @media (min-width: 768px) {
+    .header-nav-area {
+      height: var(--header-height-desktop);
+    }
+  }
+
+  /* Enhanced Brand Logo Styling */
+  .brand-logo-img {
+    height: var(--brand-logo-height-mobile);
+    width: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.08));
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  @media (min-width: 768px) {
+    .brand-logo-img {
+      height: var(--brand-logo-height-desktop);
+      filter: drop-shadow(0 6px 16px rgba(0, 0, 0, 0.12));
+    }
+  }
+
+  /* Enhanced Brand Typography */
+  .brand-logo-text {
+    font-size: var(--brand-text-mobile);
+    font-weight: 900;
+    letter-spacing: -0.04em;
+    color: hsl(var(--foreground));
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+  @media (min-width: 768px) {
+    .brand-logo-text {
+      font-size: var(--brand-text-desktop);
+    }
+  }
+
+  .brand-logo-accent {
+    color: hsl(var(--primary));
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
